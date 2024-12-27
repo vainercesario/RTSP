@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  connect-rtspo:
+    image: connect-rtsp  # Substitua por sua imagem Docker
+    build:
+      context: .  
+      dockerfile: Dockerfile  # Dockerfile do seu projeto
+    volumes:
+      - ${PWD}/videos:/videos 
+    ports:
+      - "5000:80"  
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
